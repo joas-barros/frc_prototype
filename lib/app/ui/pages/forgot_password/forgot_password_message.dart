@@ -74,9 +74,14 @@ class ForgotPasswordMessage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: ElevatedButton(
-        onPressed: () {},
-        child: Text("Entrar"),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.popUntil(context, (route) => route.isFirst);
+          },
+          child: Text("Entrar"),
+        ),
       ),
     );
   }

@@ -81,11 +81,14 @@ class _ForgotPasswordEmailPageState extends State<ForgotPasswordEmailPage> {
           ],
         ),
       ),
-      bottomNavigationBar: ElevatedButton(
-        onPressed: () {
-          Navigator.pushNamed(context, AppRoutes.forgotPasswordMessage);
-        },
-        child: const Text('Recuperar senha'),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pushNamed(context, AppRoutes.forgotPasswordMessage);
+          },
+          child: const Text('Recuperar senha'),
+        ),
       ),
     );
   }
