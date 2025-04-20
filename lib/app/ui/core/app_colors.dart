@@ -6,4 +6,5 @@ class AppColors {
   static const Color buttonText = Color(0xFFFFFFFF);
   static const Color textFieldBorder = Color(0xFF5D5D87);
   static const Color textFieldHintText = Color(0xFFBABABA);
+  static const Color textFieldBorderEnabled = Color(0xFFF2F2F2);
 }

@@ -1,4 +1,5 @@
 import 'package:florida_rental_car/app/ui/core/app_colors.dart';
+import 'package:florida_rental_car/app/ui/core/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -63,6 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                   hintStyle: TextStyle(
                     color: AppColors.textFieldHintText,
                     fontSize: 12,
+                    fontWeight: FontWeight.w300,
                   ),
                 ),
               ),
@@ -92,6 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                   hintStyle: TextStyle(
                     color: AppColors.textFieldHintText,
                     fontSize: 12,
+                    fontWeight: FontWeight.w300,
                   ),
                   suffixIcon: IconButton(
                     icon: Icon(
@@ -162,6 +165,7 @@ class _LoginPageState extends State<LoginPage> {
                   TextButton(
                     onPressed: () {
                       // Handle register action
+                      Navigator.pushNamed(context, AppRoutes.register);
                     },
                     child: Text(
                       'Registrar-se',
