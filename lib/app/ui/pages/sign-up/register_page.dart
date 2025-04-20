@@ -1,4 +1,5 @@
 import 'package:florida_rental_car/app/ui/core/app_colors.dart';
+import 'package:florida_rental_car/app/ui/core/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -30,8 +31,6 @@ class _RegisterPageState extends State<RegisterPage> {
           padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
             children: [
               const Text(
                 'Informações pessoais',
@@ -165,7 +164,9 @@ class _RegisterPageState extends State<RegisterPage> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(16),
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, AppRoutes.register2);
+          },
           child: const Text('Continuar'),
         ),
       ),
