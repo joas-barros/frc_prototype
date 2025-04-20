@@ -1,4 +1,5 @@
 import 'package:florida_rental_car/app/ui/core/app_colors.dart';
+import 'package:florida_rental_car/app/ui/core/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPasswordEmailPage extends StatefulWidget {
@@ -81,7 +82,9 @@ class _ForgotPasswordEmailPageState extends State<ForgotPasswordEmailPage> {
         ),
       ),
       bottomNavigationBar: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, AppRoutes.forgotPasswordMessage);
+        },
         child: const Text('Recuperar senha'),
       ),
     );
