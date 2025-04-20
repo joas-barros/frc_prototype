@@ -1,4 +1,7 @@
+import 'package:app_links/app_links.dart';
 import 'package:florida_rental_car/app/data/model/profile_model.dart';
+import 'package:florida_rental_car/app/ui/core/app_routes.dart';
+import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class AuthService {
@@ -64,5 +67,30 @@ class AuthService {
   // listen to auth state changes
   Stream<AuthState> authStateChanges() {
     return _client.auth.onAuthStateChange;
+  }
+
+  requestPasswordReset(String email) async {
+    await _client.auth.resetPasswordForEmail(
+      email,
+      redirectTo: 'floridarentalcar://reset-password',
+    );
+  }
+
+  configDeepLink(BuildContext context) {
+    final appLinks = AppLinks();
+
+    appLinks.uriLinkStream.listen((uri) {
+      if (uri.host == 'password-reset') {
+        Navigator.pushNamed(context, AppRoutes.createNewPassword);
+      }
+    });
+  }
+
+  resetPassword(String newPassword) async {
+    _client.auth.updateUser(
+      UserAttributes(
+        password: newPassword,
+      ),
+    );
   }
 }

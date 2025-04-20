@@ -318,7 +318,7 @@ class _RegisterPage2State extends State<RegisterPage2> {
     });
 
     try {
-      final response = await _authService.signUpWithDetails(
+      await _authService.signUpWithDetails(
         profile: widget.profileModel,
         email: email,
         password: password,
