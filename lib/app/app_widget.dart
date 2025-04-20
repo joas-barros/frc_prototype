@@ -1,5 +1,7 @@
 import 'package:florida_rental_car/app/ui/core/app_colors.dart';
 import 'package:florida_rental_car/app/ui/core/app_routes.dart';
+import 'package:florida_rental_car/app/ui/pages/auth/auth_page.dart';
+import 'package:florida_rental_car/app/ui/pages/home/home_page.dart';
 import 'package:florida_rental_car/app/ui/pages/login/login_page.dart';
 import 'package:florida_rental_car/app/ui/pages/sign-up/register_page.dart';
 import 'package:flutter/material.dart';
@@ -33,9 +35,9 @@ class MyApp extends StatelessWidget {
       ),
       //home: LoginPage(),
       routes: {
-        AppRoutes.splash: (context) => LoginPage(),
+        AppRoutes.splash: (context) => AuthPage(),
         AppRoutes.login: (context) => LoginPage(),
-        AppRoutes.home: (context) => LoginPage(),
+        AppRoutes.home: (context) => HomePage(),
         AppRoutes.register: (context) => RegisterPage(),
       },
     );

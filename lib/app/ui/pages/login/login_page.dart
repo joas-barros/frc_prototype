@@ -1,7 +1,9 @@
+import 'package:florida_rental_car/app/data/auth/auth_service.dart';
 import 'package:florida_rental_car/app/ui/core/app_colors.dart';
 import 'package:florida_rental_car/app/ui/core/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -15,6 +17,16 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _keepMeLoggedIn = false;
+
+  late final AuthService _authService;
+  bool _isLoading = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _authService = AuthService(Supabase.instance.client);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -146,8 +158,9 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   // Handle login action
+                  await _handleLogin(context);
                 },
                 child: Text('Acessar conta'),
               ),
@@ -182,5 +195,45 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+  
+  _handleLogin(BuildContext context)  async{
+
+    final email = _emailController.text.trim();
+    final password = _passwordController.text.trim();
+
+    if (email.isEmpty || password.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Por favor, preencha todos os campos.'),
+        ),
+      );
+      return;
+    }
+    setState(() {
+      _isLoading = true;
+    });
+    try {
+      await _authService.signIn(
+        email,
+        password,
+      );
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Login bem-sucedido!'),
+        ),
+      );
+    } catch (e) {
+      // Handle error (e.g., show a snackbar or dialog)
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Erro ao fazer login: ${e.toString()}'),
+        ),
+      );
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
+    }
   }
 }
