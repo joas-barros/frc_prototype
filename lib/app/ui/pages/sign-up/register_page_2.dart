@@ -1,6 +1,7 @@
 import 'package:florida_rental_car/app/data/auth/auth_service.dart';
 import 'package:florida_rental_car/app/data/model/profile_model.dart';
 import 'package:florida_rental_car/app/ui/core/app_colors.dart';
+import 'package:florida_rental_car/app/ui/core/widgets/is_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -290,14 +291,7 @@ class _RegisterPage2State extends State<RegisterPage2> {
                   await _register(context);
                 },
           child: _isLoading
-              ? const SizedBox(
-                  height: 20,
-                  width: 20,
-                  child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                    strokeWidth: 2,
-                  ),
-                )
+              ? IsLoadingIndicator()
               : const Text('Cadastrar'),
         ),
       ),

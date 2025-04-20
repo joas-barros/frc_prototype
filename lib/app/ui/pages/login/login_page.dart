@@ -1,6 +1,7 @@
 import 'package:florida_rental_car/app/data/auth/auth_service.dart';
 import 'package:florida_rental_car/app/ui/core/app_colors.dart';
 import 'package:florida_rental_car/app/ui/core/app_routes.dart';
+import 'package:florida_rental_car/app/ui/core/widgets/is_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -158,11 +159,13 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               ElevatedButton(
-                onPressed: () async {
-                  // Handle login action
-                  await _handleLogin(context);
-                },
-                child: Text('Acessar conta'),
+                onPressed: _isLoading
+                    ? null
+                    : () async {
+                        await _handleLogin(context);
+                      },
+                child:
+                    _isLoading ? IsLoadingIndicator() : Text('Acessar conta'),
               ),
               SizedBox(height: 16),
               Row(
@@ -196,9 +199,8 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-  
-  _handleLogin(BuildContext context)  async{
 
+  _handleLogin(BuildContext context) async {
     final email = _emailController.text.trim();
     final password = _passwordController.text.trim();
 
