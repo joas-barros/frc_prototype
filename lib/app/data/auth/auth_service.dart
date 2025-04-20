@@ -17,26 +17,22 @@ class AuthService {
   }
 
   // sign up a new user
-  Future<void> signUpWithDetails({required ProfileModel profile}) async {
+  Future<void> signUpWithDetails({
+    required ProfileModel profile,
+    required String email,
+    required String password,
+  }) async {
     final response = await _client.auth.signUp(
-      email: profile.email,
-      password: profile.password,
+      email: email,
+      password: password,
+      data: {
+        'first_name': profile.name,
+        'last_name': profile.lastName,
+        'phone': profile.phoneNumber,
+      },
     );
     if (response.user == null) {
       throw Exception('Failed to sign up: Invalid email or password.');
-    }
-
-    // Store additional user details in the database
-    final userId = response.user!.id;
-    final profileInsert = await _client.from('profiles').insert({
-      'id': userId,
-      'name': profile.name,
-      'last_name': profile.lastName,
-      'phone_number': profile.phoneNumber,
-    });
-
-    if (profileInsert.error != null) {
-      throw Exception('Failed to insert profile: ${profileInsert.error!.message}');
     }
   }
 
@@ -64,5 +60,4 @@ class AuthService {
   Future<void> logout() async {
     await _client.auth.signOut();
   }
-
 }

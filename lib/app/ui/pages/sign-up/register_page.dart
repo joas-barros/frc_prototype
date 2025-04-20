@@ -1,5 +1,6 @@
+import 'package:florida_rental_car/app/data/model/profile_model.dart';
 import 'package:florida_rental_car/app/ui/core/app_colors.dart';
-import 'package:florida_rental_car/app/ui/core/app_routes.dart';
+import 'package:florida_rental_car/app/ui/pages/sign-up/register_page_2.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -165,7 +166,26 @@ class _RegisterPageState extends State<RegisterPage> {
         padding: const EdgeInsets.all(16),
         child: ElevatedButton(
           onPressed: () {
-            Navigator.pushNamed(context, AppRoutes.register2);
+            if (_nameController.text.isEmpty ||
+                _lastNameController.text.isEmpty ||
+                _phoneController.text.isEmpty) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Preencha todos os campos obrigatórios.'),
+                ),
+              );
+              return;
+            }
+            final profile = ProfileModel(
+              name: _nameController.text,
+              lastName: _lastNameController.text,
+              phoneNumber: _phoneController.text,
+            );
+            Navigator.push(context,
+              MaterialPageRoute(
+                builder: (context) => RegisterPage2(profileModel: profile),
+              ),
+            );
           },
           child: const Text('Continuar'),
         ),
