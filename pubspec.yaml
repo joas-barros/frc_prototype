@@ -72,6 +72,8 @@ flutter:
     - assets/imgs/cars/car1.png
     - assets/imgs/cars/cars2.jpeg
     - assets/imgs/cars/cars3.jpeg
+    - assets/imgs/icons/avatar.png
+    - assets/imgs/icons/chat.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

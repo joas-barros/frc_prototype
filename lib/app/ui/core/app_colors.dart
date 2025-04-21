@@ -10,4 +10,5 @@ class AppColors {
   static const Color divider = Color(0xFF212130);
   static const Color textColor = Color(0xFF151615);
   static const Color dividerBar = Color(0xFFD0D0D0);
+  static const Color appBarBackground = Color(0xFF1D1D2B);
 }
