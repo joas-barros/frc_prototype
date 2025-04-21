@@ -78,6 +78,9 @@ flutter:
     - assets/imgs/icons/chat-navbar.svg
     - assets/imgs/icons/home.svg
     - assets/imgs/icons/profile.svg
+    - assets/imgs/cars/cars4.png
+    - assets/imgs/cars/cars5.png
+    - assets/imgs/cars/cars6.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

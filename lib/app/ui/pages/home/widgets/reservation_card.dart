@@ -3,18 +3,18 @@ import 'package:florida_rental_car/app/ui/core/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class ReservationCard extends StatefulWidget {
-  ReservationCard({super.key});
+  final List<String> imageUrls;
+  final bool isCheckInAvailable;
+
+  const ReservationCard(
+      {super.key, required this.imageUrls, required this.isCheckInAvailable});
 
   @override
   State<ReservationCard> createState() => _ReservationCardState();
 }
 
 class _ReservationCardState extends State<ReservationCard> {
-  final List<String> imageUrls = [
-    "assets/imgs/cars/car1.png",
-    "assets/imgs/cars/cars2.jpeg",
-    "assets/imgs/cars/cars3.jpeg"
-  ];
+
   int _currentIndex = 0;
 
   @override
@@ -41,7 +41,7 @@ class _ReservationCardState extends State<ReservationCard> {
                     });
                   },
                 ),
-                items: imageUrls.map((url) {
+                items: widget.imageUrls.map((url) {
                   return ClipRRect(
                     borderRadius:
                         const BorderRadius.vertical(top: Radius.circular(8)),
@@ -59,7 +59,7 @@ class _ReservationCardState extends State<ReservationCard> {
                 right: 0,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: imageUrls.asMap().entries.map((entry) {
+                  children: widget.imageUrls.asMap().entries.map((entry) {
                     return Container(
                       width: 8.0,
                       height: 8.0,
@@ -129,8 +129,11 @@ class _ReservationCardState extends State<ReservationCard> {
                   ],
                 ),
                 const SizedBox(height: 8),
-                ElevatedButton(
-                    onPressed: () {}, child: const Text("Check-in disponível")),
+                widget.isCheckInAvailable
+                    ? ElevatedButton(
+                        onPressed: () {},
+                        child: const Text("Check-in disponível"))
+                    : Container(),
               ],
             ),
           ),
