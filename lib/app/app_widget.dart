@@ -17,58 +17,59 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-            seedColor: Colors.deepPurple,
-            onSurface: AppColors.textColor,
-          ),
-          useMaterial3: true,
-          elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.buttonBackground,
-              foregroundColor: AppColors.buttonText,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(4.0),
-              ),
-              padding: EdgeInsets.symmetric(
-                vertical: 12,
-              ),
-              textStyle: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-              ),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
+          onSurface: AppColors.textColor,
+        ),
+        useMaterial3: true,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColors.buttonBackground,
+            foregroundColor: AppColors.buttonText,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(4.0),
             ),
-          ),
-          textButtonTheme: TextButtonThemeData(
-            style: TextButton.styleFrom(
-              textStyle: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-              ),
+            padding: EdgeInsets.symmetric(
+              vertical: 12,
             ),
-          ),
-          textTheme: TextTheme(
-            titleMedium: TextStyle(
+            textStyle: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,
             ),
-            titleLarge: TextStyle(
-              fontSize: 20,
+          ),
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            textStyle: TextStyle(
+              fontSize: 12,
               fontWeight: FontWeight.w600,
             ),
-            bodyMedium: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-            ),
-            bodySmall: TextStyle(
-              fontSize: 10,
-              fontWeight: FontWeight.w300,
-            ),
-            labelSmall: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w300,
-              color: AppColors.textFieldHintText,
-            ),
-          )),
+          ),
+        ),
+        textTheme: TextTheme(
+          titleMedium: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+          ),
+          titleLarge: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+          ),
+          bodyMedium: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w400,
+          ),
+          bodySmall: TextStyle(
+            fontSize: 10,
+            fontWeight: FontWeight.w300,
+          ),
+          labelSmall: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w300,
+            color: AppColors.textFieldHintText,
+          ),
+        ),
+      ),
       //home: LoginPage(),
       routes: {
         AppRoutes.splash: (context) => AuthPage(),

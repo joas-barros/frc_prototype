@@ -1,6 +1,6 @@
 import 'package:florida_rental_car/app/data/auth/auth_service.dart';
-import 'package:florida_rental_car/app/ui/core/app_colors.dart';
 import 'package:florida_rental_car/app/ui/core/widgets/is_loading_indicator.dart';
+import 'package:florida_rental_car/app/ui/core/widgets/text_field_password.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -17,9 +17,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
   final TextEditingController _confirmPasswordController =
       TextEditingController();
 
-  bool _obscureText = true;
-
-  bool _obscureTextConfirm = true;
+  final _formKey = GlobalKey<FormState>();
 
   late final AuthService _authService;
 
@@ -30,6 +28,14 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
     // TODO: implement initState
     super.initState();
     _authService = AuthService(Supabase.instance.client);
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
   }
 
   @override
@@ -44,92 +50,25 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const SizedBox(height: 8),
-            Text(
-              'Nova Senha',
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            const SizedBox(height: 4),
-            TextField(
-              controller: _passwordController,
-              obscureText: _obscureText,
-              style: TextStyle(color: Colors.black),
-              decoration: InputDecoration(
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(4.0),
-                  borderSide: BorderSide(
-                    color: AppColors.textFieldBorderEnabled,
-                    width: 1.0,
-                  ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(4.0),
-                  borderSide: BorderSide(
-                    color: AppColors.textFieldBorder,
-                    width: 1.0,
-                  ),
-                ),
-                hintText: 'Digite a sua nova senha',
-                hintStyle: Theme.of(context).textTheme.labelSmall,
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    _obscureText ? Icons.visibility_off : Icons.visibility,
-                    color: AppColors.textFieldHintText,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      _obscureText = !_obscureText;
-                    });
-                  },
-                ),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const SizedBox(height: 8),
+              TextFieldPassword(
+                controller: _passwordController,
+                labelText: "Nova Senha",
+                hintText: "Digite sua nova senha",
               ),
-            ),
-            const SizedBox(height: 24),
-            Text(
-              'Confirmar senha',
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            const SizedBox(height: 4),
-            TextField(
-              controller: _confirmPasswordController,
-              obscureText: _obscureTextConfirm,
-              style: TextStyle(color: Colors.black),
-              decoration: InputDecoration(
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(4.0),
-                  borderSide: BorderSide(
-                    color: AppColors.textFieldBorderEnabled,
-                    width: 1.0,
-                  ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(4.0),
-                  borderSide: BorderSide(
-                    color: AppColors.textFieldBorder,
-                    width: 1.0,
-                  ),
-                ),
-                hintText: 'Digite novamente a senha informada',
-                hintStyle: Theme.of(context).textTheme.labelSmall,
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    _obscureTextConfirm
-                        ? Icons.visibility_off
-                        : Icons.visibility,
-                    color: AppColors.textFieldHintText,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      _obscureTextConfirm = !_obscureTextConfirm;
-                    });
-                  },
-                ),
+              const SizedBox(height: 24),
+              TextFieldPassword(
+                controller: _confirmPasswordController,
+                labelText: "Confirmar Senha",
+                hintText: "Digite sua nova senha novamente",
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Padding(

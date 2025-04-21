@@ -1,6 +1,6 @@
 import 'package:florida_rental_car/app/data/auth/auth_service.dart';
-import 'package:florida_rental_car/app/ui/core/app_colors.dart';
 import 'package:florida_rental_car/app/ui/core/widgets/is_loading_indicator.dart';
+import 'package:florida_rental_car/app/ui/core/widgets/text_field_email.dart';
 import 'package:florida_rental_car/app/ui/pages/forgot_password/forgot_password_message.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -17,12 +17,20 @@ class _ForgotPasswordEmailPageState extends State<ForgotPasswordEmailPage> {
   final TextEditingController _emailController = TextEditingController();
   late final AuthService _authService;
   bool _isLoading = false;
+  final _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
     super.initState();
     _authService = AuthService(Supabase.instance.client);
     _authService.configDeepLink(context);
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _emailController.dispose();
   }
 
   @override
@@ -37,46 +45,26 @@ class _ForgotPasswordEmailPageState extends State<ForgotPasswordEmailPage> {
       ),
       body: Padding(
         padding: EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SizedBox(
-              height: 8,
-            ),
-            Text(
-              'Digite o e-mail utilizado em seu cadastro que te enviaremos um email com as instruções para criar uma nova senha.',
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-            const SizedBox(height: 24),
-            Text(
-              'E-mail',
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            const SizedBox(height: 4),
-            TextField(
-              keyboardType: TextInputType.emailAddress,
-              controller: _emailController,
-              style: TextStyle(color: Colors.black),
-              decoration: InputDecoration(
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(4.0),
-                  borderSide: BorderSide(
-                    color: AppColors.textFieldBorderEnabled,
-                    width: 1.0,
-                  ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(4.0),
-                  borderSide: BorderSide(
-                    color: AppColors.textFieldBorder,
-                    width: 1.0,
-                  ),
-                ),
-                hintText: 'Digite o seu e-mail cadastrado',
-                hintStyle: Theme.of(context).textTheme.labelSmall,
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(
+                height: 8,
               ),
-            )
-          ],
+              Text(
+                'Digite o e-mail utilizado em seu cadastro que te enviaremos um email com as instruções para criar uma nova senha.',
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              const SizedBox(height: 24),
+              TextFieldEmail(
+                controller: _emailController,
+                labelText: "E-mail",
+                hintText: "Digite o seu e-mail cadastrado",
+              )
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Padding(
@@ -114,7 +102,10 @@ class _ForgotPasswordEmailPageState extends State<ForgotPasswordEmailPage> {
       );
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => ForgotPasswordMessage(email: email,)),
+        MaterialPageRoute(
+            builder: (context) => ForgotPasswordMessage(
+                  email: email,
+                )),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
