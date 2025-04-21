@@ -1,0 +1,29 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_8488_181)">
+<circle cx="12" cy="12" r="11.25" stroke="#151615" stroke-width="1.5"/>
+<g clip-path="url(#clip1_8488_181)">
+<path d="M18.5625 8.33997C18.5625 8.70816 18.264 9.00664 17.8958 9.00664H6.10417C5.73598 9.00664 5.4375 8.70816 5.4375 8.33997V6.69206C5.4375 6.32387 5.73598 6.02539 6.10417 6.02539H17.8958C18.264 6.02539 18.5625 6.32387 18.5625 6.69206V8.33997Z" stroke="black" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square"/>
+<path d="M15.5801 4.8252V7.2127" stroke="black" stroke-miterlimit="10"/>
+<path d="M8.41992 4.8252V7.2127" stroke="black" stroke-miterlimit="10"/>
+<path d="M18.5625 11.9881V9.6735C18.5625 9.30531 18.264 9.00684 17.8958 9.00684H6.10417C5.73598 9.00684 5.4375 9.30531 5.4375 9.6735V17.8839C5.4375 18.2521 5.73598 18.5506 6.10417 18.5506H17.8958C18.264 18.5506 18.5625 18.2521 18.5625 17.8839V14.3693V11.9881Z" stroke="black" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="square"/>
+<path d="M10.2129 11.3877H11.4066" stroke="black" stroke-miterlimit="10"/>
+<path d="M12.5938 11.3877H13.7875" stroke="black" stroke-miterlimit="10"/>
+<path d="M14.9824 11.3877H16.1762" stroke="black" stroke-miterlimit="10"/>
+<path d="M10.2129 13.7754H11.4066" stroke="black" stroke-miterlimit="10"/>
+<path d="M7.82617 13.7754H9.01992" stroke="black" stroke-miterlimit="10"/>
+<path d="M12.5938 13.7754H13.7875" stroke="black" stroke-miterlimit="10"/>
+<path d="M14.9824 13.7754H16.1762" stroke="black" stroke-miterlimit="10"/>
+<path d="M10.2129 16.1631H11.4066" stroke="black" stroke-miterlimit="10"/>
+<path d="M7.82617 16.1631H9.01992" stroke="black" stroke-miterlimit="10"/>
+<path d="M12.5938 16.1631H13.7875" stroke="black" stroke-miterlimit="10"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_8488_181">
+<rect width="24" height="24" fill="white"/>
+</clipPath>
+<clipPath id="clip1_8488_181">
+<rect width="16" height="16" fill="white" transform="translate(4 4)"/>
+</clipPath>
+</defs>
+</svg>

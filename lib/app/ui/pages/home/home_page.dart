@@ -1,5 +1,6 @@
 import 'package:florida_rental_car/app/data/auth/auth_service.dart';
 import 'package:florida_rental_car/app/ui/core/app_colors.dart';
+import 'package:florida_rental_car/app/ui/pages/home/widgets/custom_bottom_nav.dart';
 import 'package:florida_rental_car/app/ui/pages/home/widgets/reservation_card.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -24,6 +25,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         toolbarHeight: 80,
         backgroundColor: AppColors.appBarBackground,
@@ -107,6 +109,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+      bottomNavigationBar: CustomBottomNav(),
     );
   }
 }

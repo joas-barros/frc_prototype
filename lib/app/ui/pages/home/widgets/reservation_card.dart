@@ -20,6 +20,7 @@ class _ReservationCardState extends State<ReservationCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       elevation: 1,
       child: Column(
