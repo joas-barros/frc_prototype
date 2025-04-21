@@ -9,4 +9,5 @@ class AppColors {
   static const Color textFieldBorderEnabled = Color(0xFFF2F2F2);
   static const Color divider = Color(0xFF212130);
   static const Color textColor = Color(0xFF151615);
+  static const Color dividerBar = Color(0xFFD0D0D0);
 }
