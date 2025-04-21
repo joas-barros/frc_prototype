@@ -13,12 +13,9 @@ class ForgotPasswordMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'Recuperar Senha',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-          ),
+          style: Theme.of(context).textTheme.titleLarge,
         ),
         centerTitle: true,
       ),
@@ -28,54 +25,32 @@ class ForgotPasswordMessage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const SizedBox(height: 8),
-            const Text(
+            Text(
               'Link de redefinição enviado',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-              ),
+              style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 16),
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               spacing: 16,
               children: [
-                const Text(
+                Text(
                   'Enviamos um email para você redefinir sua senha.',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
-                const Text(
+                Text(
                   'Para criar uma nova senha, clique no link do e-mail e insira uma nova senha.',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
-                const Text(
+                Text(
                   'Caso não tenha recebido o e-mail, verifique o seu lixo eletrônico ou clique abaixo para reenviar o email',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ],
             ),
             const SizedBox(height: 24),
             TextButton(
               onPressed: () => _handleRequestPasswordReset(context),
-              style: TextButton.styleFrom(
-                textStyle: const TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
               child: Text("Reenviar e-mail"),
             ),
           ],

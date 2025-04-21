@@ -33,170 +33,157 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.loginBackground,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 64,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Center(
-                child: SvgPicture.asset(
-                  'assets/imgs/logo.svg',
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 64,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Center(
+                  child: SvgPicture.asset(
+                    'assets/imgs/logo.svg',
+                  ),
                 ),
-              ),
-              Center(
-                child: SvgPicture.asset(
-                  'assets/imgs/title.svg',
+                Center(
+                  child: SvgPicture.asset(
+                    'assets/imgs/title.svg',
+                  ),
                 ),
-              ),
-              SizedBox(height: 32),
-              Text(
-                'E-mail',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
+                SizedBox(height: 32),
+                Text(
+                  'E-mail',
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: Colors.white,
+                      ),
                 ),
-              ),
-              SizedBox(height: 4),
-              TextField(
-                controller: _emailController,
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(4.0),
-                    borderSide: BorderSide(
-                      color: AppColors.textFieldBorder,
-                      width: 1.0,
+                SizedBox(height: 4),
+                TextField(
+                  controller: _emailController,
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(4.0),
+                      borderSide: BorderSide(
+                        color: AppColors.textFieldBorder,
+                        width: 1.0,
+                      ),
                     ),
-                  ),
-                  hintText: 'Digite seu e-mail',
-                  hintStyle: TextStyle(
-                    color: AppColors.textFieldHintText,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w300,
+                    hintText: 'Digite seu e-mail',
+                    hintStyle: Theme.of(context).textTheme.labelSmall,
                   ),
                 ),
-              ),
-              SizedBox(height: 16),
-              Text(
-                'Senha',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
+                SizedBox(height: 16),
+                Text(
+                  'Senha',
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: Colors.white,
+                      ),
                 ),
-              ),
-              SizedBox(height: 4),
-              TextField(
-                controller: _passwordController,
-                obscureText: _obscureText,
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(4.0),
-                    borderSide: BorderSide(
-                      color: AppColors.textFieldBorder,
-                      width: 1.0,
+                SizedBox(height: 4),
+                TextField(
+                  controller: _passwordController,
+                  obscureText: _obscureText,
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(4.0),
+                      borderSide: BorderSide(
+                        color: AppColors.textFieldBorder,
+                        width: 1.0,
+                      ),
                     ),
-                  ),
-                  hintText: 'Digite sua senha',
-                  hintStyle: TextStyle(
-                    color: AppColors.textFieldHintText,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w300,
-                  ),
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      _obscureText ? Icons.visibility : Icons.visibility_off,
-                      color: Colors.white,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        _obscureText = !_obscureText;
-                      });
-                    },
-                  ),
-                ),
-              ),
-              SizedBox(height: 16),
-              Row(
-                children: [
-                  Checkbox(
-                    value: _keepMeLoggedIn,
-                    onChanged: (value) {
-                      setState(() {
-                        _keepMeLoggedIn = value!;
-                      });
-                    },
-                    activeColor: AppColors.buttonBackground,
-                  ),
-                  Text(
-                    'Manter-me conectado',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                    ),
-                  ),
-                ],
-              ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      AppRoutes.forgotPasswordEmail,
-                    );
-                  },
-                  child: Text(
-                    'Esqueci minha senha',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                    ),
-                  ),
-                ),
-              ),
-              ElevatedButton(
-                onPressed: _isLoading
-                    ? null
-                    : () async {
-                        await _handleLogin(context);
+                    hintText: 'Digite a sua senha',
+                    hintStyle: Theme.of(context).textTheme.labelSmall,
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _obscureText ? Icons.visibility : Icons.visibility_off,
+                        color: AppColors.textFieldHintText,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _obscureText = !_obscureText;
+                        });
                       },
-                child:
-                    _isLoading ? IsLoadingIndicator() : Text('Acessar conta'),
-              ),
-              SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Não tem uma conta?',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
                     ),
                   ),
-                  TextButton(
+                ),
+                SizedBox(height: 16),
+                Row(
+                  children: [
+                    Checkbox(
+                      value: _keepMeLoggedIn,
+                      onChanged: (value) {
+                        setState(() {
+                          _keepMeLoggedIn = value!;
+                        });
+                      },
+                      activeColor: AppColors.buttonBackground,
+                    ),
+                    Text(
+                      'Manter-me conectado',
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            color: Colors.white,
+                          ),
+                    ),
+                  ],
+                ),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
                     onPressed: () {
-                      // Handle register action
-                      Navigator.pushNamed(context, AppRoutes.register);
+                      Navigator.pushNamed(
+                        context,
+                        AppRoutes.forgotPasswordEmail,
+                      );
                     },
                     child: Text(
-                      'Registrar-se',
+                      'Esqueci minha senha',
                       style: TextStyle(
-                        color: AppColors.buttonBackground,
-                        fontSize: 12,
+                        color: Colors.white,
                       ),
                     ),
                   ),
-                ],
-              ),
-            ],
+                ),
+                ElevatedButton(
+                  onPressed: _isLoading
+                      ? null
+                      : () async {
+                          await _handleLogin(context);
+                        },
+                  child:
+                      _isLoading ? IsLoadingIndicator() : Text('Acessar conta'),
+                ),
+                SizedBox(height: 16),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Não tem uma conta?',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        // Handle register action
+                        Navigator.pushNamed(context, AppRoutes.register);
+                      },
+                      child: Text(
+                        'Registrar-se',
+                        style: TextStyle(
+                          color: AppColors.buttonBackground,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

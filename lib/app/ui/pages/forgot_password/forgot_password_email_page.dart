@@ -29,12 +29,9 @@ class _ForgotPasswordEmailPageState extends State<ForgotPasswordEmailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'Recuperar Senha',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-          ),
+          style: Theme.of(context).textTheme.titleLarge,
         ),
         centerTitle: true,
       ),
@@ -46,22 +43,14 @@ class _ForgotPasswordEmailPageState extends State<ForgotPasswordEmailPage> {
             SizedBox(
               height: 8,
             ),
-            const Text(
+            Text(
               'Digite o e-mail utilizado em seu cadastro que te enviaremos um email com as instruções para criar uma nova senha.',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
-              ),
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
             const SizedBox(height: 24),
-            const Text(
+            Text(
               'E-mail',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-              ),
+              style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 4),
             TextField(
@@ -84,11 +73,7 @@ class _ForgotPasswordEmailPageState extends State<ForgotPasswordEmailPage> {
                   ),
                 ),
                 hintText: 'Digite o seu e-mail cadastrado',
-                hintStyle: TextStyle(
-                  color: AppColors.textFieldHintText,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w300,
-                ),
+                hintStyle: Theme.of(context).textTheme.labelSmall,
               ),
             )
           ],

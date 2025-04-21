@@ -37,12 +37,9 @@ class _RegisterPage2State extends State<RegisterPage2> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'Participar',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-          ),
+          style: Theme.of(context).textTheme.titleLarge,
         ),
         centerTitle: true,
       ),
@@ -52,13 +49,9 @@ class _RegisterPage2State extends State<RegisterPage2> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Text(
+              Text(
                 'Dados de login para a sua conta',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               const SizedBox(height: 4),
               const Text(
@@ -70,13 +63,9 @@ class _RegisterPage2State extends State<RegisterPage2> {
                 ),
               ),
               const SizedBox(height: 24),
-              const Text(
+              Text(
                 'E-mail',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               const SizedBox(height: 4),
               TextField(
@@ -98,21 +87,13 @@ class _RegisterPage2State extends State<RegisterPage2> {
                     ),
                   ),
                   hintText: 'Digite o seu melhor e-mail',
-                  hintStyle: TextStyle(
-                    color: AppColors.textFieldHintText,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w300,
-                  ),
+                  hintStyle: Theme.of(context).textTheme.labelSmall,
                 ),
               ),
               const SizedBox(height: 24),
-              const Text(
+              Text(
                 'Senha',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               const SizedBox(height: 4),
               TextField(
@@ -135,14 +116,12 @@ class _RegisterPage2State extends State<RegisterPage2> {
                     ),
                   ),
                   hintText: 'Digite sua senha',
-                  hintStyle: TextStyle(
-                    color: AppColors.textFieldHintText,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w300,
-                  ),
+                  hintStyle: Theme.of(context).textTheme.labelSmall,
                   suffixIcon: IconButton(
                     icon: Icon(
-                        _obscureText ? Icons.visibility_off : Icons.visibility),
+                      _obscureText ? Icons.visibility_off : Icons.visibility,
+                      color: AppColors.textFieldHintText,
+                    ),
                     onPressed: () {
                       setState(() {
                         _obscureText = !_obscureText;
@@ -152,13 +131,9 @@ class _RegisterPage2State extends State<RegisterPage2> {
                 ),
               ),
               const SizedBox(height: 24),
-              const Text(
+              Text(
                 'Confirmar senha',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               const SizedBox(height: 4),
               TextField(
@@ -181,15 +156,14 @@ class _RegisterPage2State extends State<RegisterPage2> {
                     ),
                   ),
                   hintText: 'Confirme sua senha',
-                  hintStyle: TextStyle(
-                    color: AppColors.textFieldHintText,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w300,
-                  ),
+                  hintStyle: Theme.of(context).textTheme.labelSmall,
                   suffixIcon: IconButton(
-                    icon: Icon(_obscureTextConfirm
-                        ? Icons.visibility_off
-                        : Icons.visibility),
+                    icon: Icon(
+                      _obscureTextConfirm
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                      color: AppColors.textFieldHintText,
+                    ),
                     onPressed: () {
                       setState(() {
                         _obscureTextConfirm = !_obscureTextConfirm;
@@ -203,13 +177,9 @@ class _RegisterPage2State extends State<RegisterPage2> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
+                  Text(
                     'ATIVAR FACE ID',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                    ),
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   Switch(
                     value: _ativateFaceId,
@@ -227,13 +197,9 @@ class _RegisterPage2State extends State<RegisterPage2> {
                 thickness: 1,
               ),
               SizedBox(height: 12),
-              const Text(
+              Text(
                 'Ao me inscrever, eu concordo com os Termos de Uso e com as Políticas de Privacidade da Florida Rental Car',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 10,
-                  fontWeight: FontWeight.w300,
-                ),
+                style: Theme.of(context).textTheme.bodySmall,
               ),
               const SizedBox(height: 12),
               InkWell(
@@ -243,13 +209,10 @@ class _RegisterPage2State extends State<RegisterPage2> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8),
                   child: Row(
-                    children: const [
+                    children:[
                       Text(
                         "Termos de uso",
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                        ),
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       SizedBox(width: 8),
                       Icon(Icons.arrow_forward, size: 16),
@@ -264,13 +227,10 @@ class _RegisterPage2State extends State<RegisterPage2> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8),
                   child: Row(
-                    children: const [
+                    children: [
                       Text(
                         "Política de privacidade",
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                        ),
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       SizedBox(width: 8),
                       Icon(Icons.arrow_forward, size: 16),
@@ -290,9 +250,7 @@ class _RegisterPage2State extends State<RegisterPage2> {
               : () async {
                   await _register(context);
                 },
-          child: _isLoading
-              ? IsLoadingIndicator()
-              : const Text('Cadastrar'),
+          child: _isLoading ? IsLoadingIndicator() : const Text('Cadastrar'),
         ),
       ),
     );

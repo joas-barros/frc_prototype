@@ -8,4 +8,5 @@ class AppColors {
   static const Color textFieldHintText = Color(0xFFBABABA);
   static const Color textFieldBorderEnabled = Color(0xFFF2F2F2);
   static const Color divider = Color(0xFF212130);
+  static const Color textColor = Color(0xFF151615);
 }

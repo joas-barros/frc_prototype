@@ -20,10 +20,7 @@ class _RegisterPageState extends State<RegisterPage> {
       appBar: AppBar(
         title: Text(
           'Participar',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-          ),
+          style: Theme.of(context).textTheme.titleLarge,
         ),
         centerTitle: true,
       ),
@@ -33,31 +30,19 @@ class _RegisterPageState extends State<RegisterPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Text(
+              Text(
                 'Informações pessoais',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               const SizedBox(height: 4),
-              const Text(
+              Text(
                 'Insira seus dados exatamente como aparecem em seus documentos pessoais.',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                ),
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(height: 24),
-              const Text(
+              Text(
                 'Nome',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               const SizedBox(height: 4),
               TextField(
@@ -79,21 +64,13 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ),
                   hintText: 'Digite seu nome',
-                  hintStyle: TextStyle(
-                    color: AppColors.textFieldHintText,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w300,
-                  ),
+                  hintStyle: Theme.of(context).textTheme.labelSmall,
                 ),
               ),
               const SizedBox(height: 24),
-              const Text(
+              Text(
                 'Sobrenome',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               const SizedBox(height: 4),
               TextField(
@@ -115,21 +92,13 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ),
                   hintText: 'Digite o seu sobrenome',
-                  hintStyle: TextStyle(
-                    color: AppColors.textFieldHintText,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w300,
-                  ),
+                  hintStyle: Theme.of(context).textTheme.labelSmall,
                 ),
               ),
               SizedBox(height: 24),
-              const Text(
+              Text(
                 'Telefone',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               const SizedBox(height: 4),
               TextField(
@@ -151,11 +120,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ),
                   hintText: 'Digite seu telefone',
-                  hintStyle: TextStyle(
-                    color: AppColors.textFieldHintText,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w300,
-                  ),
+                  hintStyle: Theme.of(context).textTheme.labelSmall,
                 ),
               ),
             ],

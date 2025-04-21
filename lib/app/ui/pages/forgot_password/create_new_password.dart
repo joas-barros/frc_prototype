@@ -36,12 +36,9 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'Criar nova senha',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-          ),
+          style: Theme.of(context).textTheme.titleLarge,
         ),
         centerTitle: true,
       ),
@@ -51,13 +48,9 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const SizedBox(height: 8),
-            const Text(
+            Text(
               'Nova Senha',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-              ),
+              style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 4),
             TextField(
@@ -80,14 +73,12 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                   ),
                 ),
                 hintText: 'Digite a sua nova senha',
-                hintStyle: TextStyle(
-                  color: AppColors.textFieldHintText,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w300,
-                ),
+                hintStyle: Theme.of(context).textTheme.labelSmall,
                 suffixIcon: IconButton(
                   icon: Icon(
-                      _obscureText ? Icons.visibility_off : Icons.visibility),
+                    _obscureText ? Icons.visibility_off : Icons.visibility,
+                    color: AppColors.textFieldHintText,
+                  ),
                   onPressed: () {
                     setState(() {
                       _obscureText = !_obscureText;
@@ -97,13 +88,9 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
               ),
             ),
             const SizedBox(height: 24),
-            const Text(
+            Text(
               'Confirmar senha',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-              ),
+              style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 4),
             TextField(
@@ -126,15 +113,14 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                   ),
                 ),
                 hintText: 'Digite novamente a senha informada',
-                hintStyle: TextStyle(
-                  color: AppColors.textFieldHintText,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w300,
-                ),
+                hintStyle: Theme.of(context).textTheme.labelSmall,
                 suffixIcon: IconButton(
-                  icon: Icon(_obscureTextConfirm
-                      ? Icons.visibility_off
-                      : Icons.visibility),
+                  icon: Icon(
+                    _obscureTextConfirm
+                        ? Icons.visibility_off
+                        : Icons.visibility,
+                    color: AppColors.textFieldHintText,
+                  ),
                   onPressed: () {
                     setState(() {
                       _obscureTextConfirm = !_obscureTextConfirm;
