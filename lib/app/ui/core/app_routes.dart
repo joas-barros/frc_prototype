@@ -9,4 +9,5 @@ class AppRoutes {
   static const String createNewPassword = '/create-new-password';
   static const String profile = '/profile';
   static const String settings = '/settings';
+  static const String reservationDetails = '/reservation-details';
 }

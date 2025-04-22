@@ -11,4 +11,7 @@ class AppColors {
   static const Color textColor = Color(0xFF151615);
   static const Color dividerBar = Color(0xFFD0D0D0);
   static const Color appBarBackground = Color(0xFF1D1D2B);
+  static const Color unselectedIconColor = Color(0xFFF2F2F2);
+  static const Color secundaryIconColor = Color(0xFFC90000);
+  static const Color primaryIconColor = Color(0xFF484869);
 }

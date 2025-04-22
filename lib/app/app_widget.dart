@@ -6,6 +6,7 @@ import 'package:florida_rental_car/app/ui/pages/forgot_password/forgot_password_
 import 'package:florida_rental_car/app/ui/pages/forgot_password/forgot_password_message.dart';
 import 'package:florida_rental_car/app/ui/pages/home/home_page.dart';
 import 'package:florida_rental_car/app/ui/pages/login/login_page.dart';
+import 'package:florida_rental_car/app/ui/pages/reservation/reservation_page.dart';
 import 'package:florida_rental_car/app/ui/pages/sign-up/register_page.dart';
 import 'package:flutter/material.dart';
 
@@ -79,6 +80,7 @@ class MyApp extends StatelessWidget {
         AppRoutes.forgotPasswordEmail: (context) => ForgotPasswordEmailPage(),
         AppRoutes.forgotPasswordMessage: (context) => ForgotPasswordMessage(),
         AppRoutes.createNewPassword: (context) => CreateNewPassword(),
+        AppRoutes.reservationDetails: (context) => ReservationPage(),
       },
     );
   }
