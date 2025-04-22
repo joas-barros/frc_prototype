@@ -22,7 +22,6 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const SizedBox(height: 16),
               Text(
                 "Próximas reservas",
                 style: Theme.of(context).textTheme.titleMedium,

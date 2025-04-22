@@ -82,20 +82,22 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
   }
 
   void _handleRequest(BuildContext context) {
-    if (_passwordController.text.isEmpty ||
-        _confirmPasswordController.text.isEmpty) {
+
+    if (_passwordController.text != _confirmPasswordController.text) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Preencha todos os campos obrigatórios.'),
+        SnackBar(
+          content: Text("As senhas não coincidem"),
+          backgroundColor: Colors.red,
         ),
       );
       return;
     }
 
-    if (_passwordController.text != _confirmPasswordController.text) {
+    if (!_formKey.currentState!.validate()) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('As senhas não coincidem.'),
+        SnackBar(
+          content: Text("Senha Inválida"),
+          backgroundColor: Colors.red,
         ),
       );
       return;
@@ -110,6 +112,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Senha alterada com sucesso!'),
+          backgroundColor: Colors.green,
         ),
       );
       Navigator.popUntil(context, (route) => route.isFirst);
@@ -117,6 +120,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Erro ao alterar a senha: $e'),
+          backgroundColor: Colors.red,
         ),
       );
     } finally {
