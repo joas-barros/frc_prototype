@@ -84,6 +84,14 @@ flutter:
     - assets/imgs/icons/location.svg
     - assets/imgs/icons/info.svg
     - assets/imgs/icons/arrow-right.svg
+    - assets/imgs/icons/instructions/camera.svg
+    - assets/imgs/icons/instructions/Carro.svg
+    - assets/imgs/icons/instructions/check.svg
+    - assets/imgs/icons/instructions/double-check.svg
+    - assets/imgs/icons/instructions/fuel.svg
+    - assets/imgs/icons/instructions/Key.svg
+    - assets/imgs/icons/instructions/Ticket.svg
+    - assets/imgs/icons/instructions/Walking.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

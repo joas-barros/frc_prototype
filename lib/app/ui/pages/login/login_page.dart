@@ -210,11 +210,6 @@ class _LoginPageState extends State<LoginPage> {
         email,
         password,
       );
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Login bem-sucedido!'),
-        ),
-      );
     } catch (e) {
       // Handle error (e.g., show a snackbar or dialog)
       ScaffoldMessenger.of(context).showSnackBar(

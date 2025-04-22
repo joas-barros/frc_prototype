@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:florida_rental_car/app/ui/core/app_colors.dart';
+import 'package:florida_rental_car/app/ui/core/app_routes.dart';
 import 'package:florida_rental_car/app/ui/pages/reservation/widgets/option_cards.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +20,7 @@ class _ReservationPageState extends State<ReservationPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: Text(
           'Reserva',
           style: Theme.of(context).textTheme.titleLarge,
@@ -195,7 +197,7 @@ class _ReservationPageState extends State<ReservationPage> {
               OptionCards(
                 iconPath: "assets/imgs/icons/info.svg",
                 text: "Instruções para check-in e check-out",
-                onTap: () {},
+                onTap: () => Navigator.pushNamed(context, AppRoutes.instructions),
               ),
               SizedBox(height: 8),
               OptionCards(
