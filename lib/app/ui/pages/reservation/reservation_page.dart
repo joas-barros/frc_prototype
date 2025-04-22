@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:florida_rental_car/app/ui/core/app_colors.dart';
 import 'package:florida_rental_car/app/ui/core/app_routes.dart';
+import 'package:florida_rental_car/app/ui/pages/reservation/widgets/edit_reservation_modal.dart';
 import 'package:florida_rental_car/app/ui/pages/reservation/widgets/option_cards.dart';
 import 'package:flutter/material.dart';
 
@@ -74,10 +75,12 @@ class _ReservationPageState extends State<ReservationPage> {
                         children: [
                           Text(
                             "Hyundai Tucson ou similares",
-                            style:
-                                Theme.of(context).textTheme.titleMedium?.copyWith(
-                                      color: Colors.white,
-                                    ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(
+                                  color: Colors.white,
+                                ),
                           ),
                           Text(
                             "Categoria SUV",
@@ -197,7 +200,8 @@ class _ReservationPageState extends State<ReservationPage> {
               OptionCards(
                 iconPath: "assets/imgs/icons/info.svg",
                 text: "Instruções para check-in e check-out",
-                onTap: () => Navigator.pushNamed(context, AppRoutes.instructions),
+                onTap: () =>
+                    Navigator.pushNamed(context, AppRoutes.instructions),
               ),
               SizedBox(height: 8),
               OptionCards(
@@ -207,7 +211,7 @@ class _ReservationPageState extends State<ReservationPage> {
               ),
               SizedBox(height: 8),
               TextButton(
-                onPressed: () {},
+                onPressed: () => _showEditReservationModal(context),
                 child: Text(
                   "Alterar reserva",
                   style: TextStyle(
@@ -219,6 +223,19 @@ class _ReservationPageState extends State<ReservationPage> {
           ),
         ),
       ),
+    );
+  }
+
+  _showEditReservationModal(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
+      ),
+      isScrollControlled: true,
+      builder: (context) {
+        return const EditReservationModal();
+      },
     );
   }
 }
