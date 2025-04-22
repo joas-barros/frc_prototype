@@ -45,6 +45,12 @@ class RegularTextField extends StatelessWidget {
             hintText: hintText,
             hintStyle: Theme.of(context).textTheme.labelSmall,
           ),
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Campo obrigatório';
+            }
+            return null;
+          },
         ),
       ],
     );

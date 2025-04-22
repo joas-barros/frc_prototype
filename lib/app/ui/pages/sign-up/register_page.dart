@@ -85,12 +85,12 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   void _handleGoToNextPage(BuildContext context) {
-    if (_nameController.text.isEmpty ||
-        _lastNameController.text.isEmpty ||
-        _phoneController.text.isEmpty) {
+
+    if (!_formKey.currentState!.validate()) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Preencha todos os campos obrigatórios.'),
+          content: Text('Preencha todos os campos obrigatórios corretamente.'),
+          backgroundColor: Colors.red,
         ),
       );
       return;

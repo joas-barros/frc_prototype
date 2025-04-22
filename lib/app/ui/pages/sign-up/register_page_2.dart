@@ -149,13 +149,13 @@ class _RegisterPage2State extends State<RegisterPage2> {
     final password = _passwordController.text.trim();
     final confirmPassword = _confirmPasswordController.text.trim();
 
-    if (email.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
-      showError('Preencha todos os campos.');
+    if (password != confirmPassword) {
+      showError('As senhas não coincidem.');
       return;
     }
 
-    if (password != confirmPassword) {
-      showError('As senhas não coincidem.');
+    if (!_formKey.currentState!.validate()) {
+      showError('Preencha todos os campos corretamente.');
       return;
     }
 
