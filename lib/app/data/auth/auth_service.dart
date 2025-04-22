@@ -37,6 +37,8 @@ class AuthService {
     if (response.user == null) {
       throw Exception('Failed to sign up: Invalid email or password.');
     }
+
+    signOut();
   }
 
   // sign out the user
@@ -92,5 +94,7 @@ class AuthService {
         password: newPassword,
       ),
     );
+
+    signOut();
   }
 }

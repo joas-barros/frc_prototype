@@ -1,6 +1,7 @@
 import 'package:florida_rental_car/app/data/model/profile_model.dart';
 import 'package:florida_rental_car/app/ui/core/widgets/regular_text_field.dart';
 import 'package:florida_rental_car/app/ui/pages/sign-up/register_page_2.dart';
+import 'package:florida_rental_car/app/ui/pages/sign-up/widgets/phone_input_field.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -65,10 +66,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   hintText: "Digite o seu sobrenome",
                 ),
                 SizedBox(height: 24),
-                RegularTextField(
+                PhoneInputField(
                   controller: _phoneController,
-                  labelText: "Telefone",
-                  hintText: "Digite o seu telefone",
                 ),
               ],
             ),
