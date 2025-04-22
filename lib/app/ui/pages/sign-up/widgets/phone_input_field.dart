@@ -44,6 +44,6 @@ class PhoneInputField extends StatelessWidget {
           },
         ),
       ],
-    );;
+    );
   }
 }
