@@ -1,6 +1,6 @@
 import 'package:florida_rental_car/app/data/auth/auth_service.dart';
-import 'package:florida_rental_car/app/ui/core/app_colors.dart';
-import 'package:florida_rental_car/app/ui/core/app_routes.dart';
+import 'package:florida_rental_car/app/ui/core/constants/app_colors.dart';
+import 'package:florida_rental_car/app/ui/core/constants/app_routes.dart';
 import 'package:florida_rental_car/app/ui/core/widgets/is_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

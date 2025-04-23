@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:florida_rental_car/app/ui/core/app_colors.dart';
-import 'package:florida_rental_car/app/ui/core/app_routes.dart';
+import 'package:florida_rental_car/app/ui/core/constants/app_colors.dart';
+import 'package:florida_rental_car/app/ui/core/constants/app_routes.dart';
 import 'package:florida_rental_car/app/ui/pages/reservation/widgets/edit_reservation_modal.dart';
 import 'package:florida_rental_car/app/ui/pages/reservation/widgets/option_cards.dart';
 import 'package:flutter/material.dart';

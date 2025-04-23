@@ -1,6 +1,6 @@
 import 'package:florida_rental_car/app/data/auth/auth_service.dart';
 import 'package:florida_rental_car/app/data/model/profile_model.dart';
-import 'package:florida_rental_car/app/ui/core/app_colors.dart';
+import 'package:florida_rental_car/app/ui/core/constants/app_colors.dart';
 import 'package:florida_rental_car/app/ui/core/widgets/is_loading_indicator.dart';
 import 'package:florida_rental_car/app/ui/core/widgets/text_field_email.dart';
 import 'package:florida_rental_car/app/ui/core/widgets/text_field_password.dart';
