@@ -72,10 +72,14 @@ class AuthService {
   }
 
   requestPasswordReset(String email) async {
-    await _client.auth.resetPasswordForEmail(
-      email,
-      redirectTo: 'floridarentalcar://reset-password',
-    );
+    try {
+      await _client.auth.resetPasswordForEmail(
+        email,
+        redirectTo: 'floridarentalcar://reset-password',
+      );
+    } catch (e) {
+      throw Exception('Failed to send password reset email: $e');
+    }
   }
 
   configDeepLink(BuildContext context) {
@@ -94,7 +98,6 @@ class AuthService {
         password: newPassword,
       ),
     );
-
     signOut();
   }
 }

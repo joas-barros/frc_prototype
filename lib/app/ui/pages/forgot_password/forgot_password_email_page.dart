@@ -79,15 +79,18 @@ class _ForgotPasswordEmailPageState extends State<ForgotPasswordEmailPage> {
   }
 
   void _handleRequestPasswordReset(BuildContext context) {
-    String email = _emailController.text.trim();
-    if (email.isEmpty) {
+
+    if (!_formKey.currentState!.validate()) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Por favor, preencha o e-mail.'),
+          content: Text('Preencha todos os campos obrigatórios corretamente.'),
+          backgroundColor: Colors.red,
         ),
       );
       return;
     }
+
+    String email = _emailController.text.trim();
 
     setState(() {
       _isLoading = true;
@@ -98,6 +101,7 @@ class _ForgotPasswordEmailPageState extends State<ForgotPasswordEmailPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('E-mail de recuperação enviado!'),
+          backgroundColor: Colors.green,
         ),
       );
       Navigator.push(
@@ -111,6 +115,7 @@ class _ForgotPasswordEmailPageState extends State<ForgotPasswordEmailPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Erro ao enviar o e-mail: $e'),
+          backgroundColor: Colors.red,
         ),
       );
     } finally {
